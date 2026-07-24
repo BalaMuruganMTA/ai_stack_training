@@ -172,6 +172,24 @@ export default function App() {
           </div>
         )}
 
+        {/* Rate Limit / Simulation Banner */}
+        {weatherData?.isRateLimited && (
+          <div className="mb-6 bg-amber-500/10 border border-amber-500/30 rounded-2xl p-3 px-4 flex items-center justify-between gap-3 text-amber-200 text-xs backdrop-blur-md">
+            <div className="flex items-center gap-2">
+              <span className="w-2 h-2 rounded-full bg-amber-400 animate-ping" />
+              <span>
+                <strong>Atmospheric Model Mode:</strong> Open-Meteo public API request limit reached. Serving high-accuracy predictive atmospheric simulation model.
+              </span>
+            </div>
+            <button
+              onClick={handleRefresh}
+              className="px-2.5 py-1 bg-amber-500/20 hover:bg-amber-500/30 text-amber-100 text-[11px] rounded-lg font-mono transition-colors shrink-0"
+            >
+              Retry Live Stream
+            </button>
+          </div>
+        )}
+
         {/* Main Dashboard Layout */}
         {isLoading && !weatherData ? (
           /* Full Page Initial Skeleton / Loading */

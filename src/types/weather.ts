@@ -49,6 +49,7 @@ export interface HourlyForecastData {
   precipitation_probability: number[];
   weather_code: number[];
   wind_speed_10m: number[];
+  uv_index?: number[];
 }
 
 export interface WeatherData {
@@ -63,6 +64,7 @@ export interface WeatherData {
   locationName: string;
   country?: string;
   admin1?: string;
+  isRateLimited?: boolean;
 }
 
 export interface WeatherCodeInfo {
